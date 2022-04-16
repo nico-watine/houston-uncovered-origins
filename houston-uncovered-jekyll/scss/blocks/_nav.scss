@@ -1,0 +1,95 @@
+@import "../settings/_settings.scss";
+
+$width-1000: "only screen and (max-width : 62.500em)";
+$width-760: "only screen and (max-width : 47.500em)";
+$max-701: "only screen and (max-width : 43.813em)";
+
+ul#main-nav {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	float: right;
+
+	li {
+		float: left;
+
+		a {
+			text-decoration: none;
+			font-size: rem(21);
+			padding: 0 rem(20);
+			color: #fff;
+			text-shadow: rem(1) rem(2) rem(2) #000;
+
+			border-right: rem(3) solid $brick-gray;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+
+		a.active {
+			font-weight: $header-font-weight;
+		}
+
+		a#last {
+			border: 0;
+			padding-right: 0;
+		}
+	}
+}
+
+@media #{$width-1000} {
+	nav {
+		padding-top: em(10);
+	}
+
+	ul#main-nav {
+		li {
+			a {
+				font-size: rem(18);
+			}
+			a#last {
+				padding-right: 0;
+			}
+		}
+	}
+}
+
+@include media($width-770) {
+	nav {
+		padding-top: 0;
+		@include span-columns(7 of 10);
+
+		ul#main-nav {
+			li {
+				a {
+					padding: 0 rem(8) 0;
+				}
+			}
+		}
+	}
+}
+
+@include media($width-610) {
+	nav {
+		width: 100%;
+	}
+
+	ul#main-nav {
+		float: none;
+		display: block;
+		width: 100%;
+
+		li {
+			float: none;
+			display: inline-block;
+			margin-bottom: em(8);
+
+			a {
+				padding: 0;
+				font-size: rem(20);
+			}
+		}
+	}
+}
+
